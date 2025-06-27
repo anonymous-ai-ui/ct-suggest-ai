@@ -1,0 +1,42 @@
+(Replace 'dynamicmlsurvey' with app name)
+
+sudo docker build -t dataincite/ctsuggest .
+sudo docker run -it -p 1824:1824 -e OPENAI_API_KEY="keyhere" dataincite/ctsuggest 
+
+sudo docker images
+sudo docker push dataincite/ctsuggest
+
+DockerHub location: https://hub.docker.com/repository/docker/dataincite/ctsuggest
+
+Other: 
+ssh erickj4@rcs-linux.rpi.edu  (no VPN required!)
+
+ssh erickj4@inciteprojects.idea.rpi.edu
+
+To refresh images on prod server:
+
+ssh erickj4@ctsuggest.idea.rpi.edu
+THEN
+sudo docker pull dataincite/ctsuggest
+sudo docker images 
+
+RECONFIGURE SHINYPROXY!!! (on inciteprojects)
+/etc/shinyproxy/application.xml
+
+REBOOT SERVER!!
+
+TEST ADDRESS:
+http://ctsuggest.idea.rpi.edu:8080/ctsuggest/app/ctsuggest/
+
+Restarting Docker: 
+sudo service docker restart
+
+sudo service shinyproxy restart
+
+NOTE: Check for new dependencies!
+
+
+SEE ALSO: 
+* https://bit.ly/3fFGqHx (R best practices with Docker)
+* https://bit.ly/3paoIie (Hosting Shiny apps with Docker)
+* https://bit.ly/3yN2RSu (all)
