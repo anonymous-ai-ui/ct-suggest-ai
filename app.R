@@ -236,7 +236,8 @@ ui <- fluidPage(
       width = 8,
       div(
         style = "text-align:center;",
-        h2("CT Suggest:  Clinical Trial Suggestion of Baseline Features",
+        h2("CTSuggest: An LLM-powered Open Source Application to support
+Clinical Trial Design by Suggesting Baseline Features",
            style = "color:#054664; font-weight: bold;")
       )
     )
@@ -416,9 +417,29 @@ ui <- fluidPage(
                 column(12,
                        div(style = "background-color: #CDE3ED; padding: 20px; border-radius: 8px;",
                            tags$h2("About CTSuggest", style = "font-weight: bold; color: #333333; font-size: 24px;"),
-                           tags$p("CTSuggest, short for Clinical Trial Suggestion of Baseline Features using LLM, is a user-friendly tool based on the CTBench benchmark that helps researchers and clinicians design clinical trials by using Large Language Models (LLMs) to suggest baseline features to be collected based on existing trial metadata. Baseline features are the critical characteristics of the trial participants that researchers and clinicians need to monitor before and after treatment in a clinical trial. In CTSuggest, you can choose an existing clinical trial from the database used in CTBench, or create a custom trial tailored to your needs. Once you select or create a trial, CTSuggest uses LLMs to generate key baseline features.",
+                           tags$p("The specification of potentially confounding baselines features or
+covariates is a crucial step in the design of prospective and retro-
+spective clinical trials. Baseline features are critical for ensuring
+the integrity of the study design, the validity of the results, and the
+generalizability of the findings. The CTSuggest application leverages Large Language Models (LLM) to generate baseline features
+as part of the clinical trial design process. Users first specify basic
+trial metadata and then CTSuggest suggests appropriate features
+with an explanation for each feature. Users can create an entirely
+new trial or start with metadata from an existing trial from ClinicalTrials.gov. ",
                                   style = "font-weight: 600; color: #333333; font-size: 16px;"),
-                           tags$p("Additionally, if baseline features are generated for an existing trial, CTSuggest can check how well these generated features match up with the baseline features actually measured in that trial by using LLMs. This step allows users to verify that the features suggested by CTSuggest are appropriate, helping to improve confidence in the app as well as the quality of the outcomes for trials which use CTSuggest. CTSuggest is an experiment with future potential designed by students to simplify complex tasks, and advance medical research and treatment effectiveness in the future.",
+                           tags$p(" CTSuggest translates the prior CTBench benchmark
+of Neehal et al. 2024 by transforming and improving their methods
+into a user-friendly open-source application. We perform experiments validating the quality of CTSuggest’s baseline features using
+the benchmark CT-Pub dataset taken from clinical trial publications
+and evaluating using the LLM-as-a-Judge framework provided
+                                  in the CTBench benchmark. Results show feature suggestions using the state-of-the-art GPT-4o model meet or exceed the prior
+                                  published CTBench results. We also show the promise of using a
+                                  smaller open-source Llama model. CTSuggest provides a useful beta
+                                  version now which can be enhanced with additional AI capabilities
+                                  and validated with human user studes. We solicit user feedback,
+                                  and provide next steps to make CTSuggest an even more powerful
+                                  interactive tool for designers of clinical trials and observational
+                                  studies. ",
                                   style = "font-weight: 600; color: #333333; font-size: 16px;"),
                            tags$h2("Important instructions", style = "font-weight: bold; color: #333333; font-size: 24px;"),
                            tags$p("1. In step 1, you can either load an existing trial or create a blank custom trial by hitting the respective buttons. If you customize a trial (either by creating a blank one or modifying an existing one), clicking 'Update' saves the information for future steps. You also have the option to download the saved information as a JSON file ", 
