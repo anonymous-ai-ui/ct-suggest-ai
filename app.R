@@ -1463,8 +1463,12 @@ server <- function(input, output, session) {
     # 1. Reference features are already backtick-enclosed in Paper_BaselineMeasures_Corrected
     reference_list <- extract_elements(row["Paper_BaselineMeasures_Corrected"])
     
-    # 2. Convert plain-text candidate features to backtick format
-    candidate_backtick_string <- add_backticks(input$CandidateFeatures)
+    #2. Clean and re-wrap candidate features in backticks
+    raw_feats <- input$CandidateFeatures
+    # remove any stray backticks or quotes
+    raw_feats <- gsub("[`\"“”‘’']", "", raw_feats)
+    # now wrap each comma-separated item
+    candidate_backtick_string <- add_backticks(raw_feats)
     
     # 3. Now parse them with extract_elements(), which looks for `...`
     
